@@ -1,6 +1,7 @@
 # BestDeals Bank
 
-Interview test implementation
+Interview test implementation:
+
 Java implementation of BestDeals Bank Interview test task. Guice and Jersey are used to implement the REST Endpoints/Resources.
 
 ## Installation
