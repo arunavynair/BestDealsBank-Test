@@ -1,6 +1,6 @@
 Java implementation of BestDeals Bank Interview test task. Guice and Jersey are used to implement the REST endpoints/Resources. Sample endpoints provided below:
 
-# [Calculate] - calculatorType=[simple/compound]
+# Calculate] - simple/compound
 ## [POST]
 > http://localhost:7080/calculator-services/services/calculator?type=simple
 >Input Json:
