@@ -40,7 +40,7 @@ public class InMemoryDaoImplTest {
     
     @Test
     public void shouldPutClientDeals(InMemoryDaoImpl underTest) throws Exception {
-        String clientID = saveTestData(underTest);
+        String clientID = saveTestData("1", underTest);
         
         List<DealDetails> dealsForClient = underTest.getAllDealsForClient(clientID);
         assertNotNull(dealsForClient);
@@ -60,7 +60,7 @@ public class InMemoryDaoImplTest {
     }
     @Test
     public void shouldGetClientDeals(InMemoryDaoImpl underTest) throws Exception {
-        String clientID = saveTestData(underTest);
+        String clientID = saveTestData("2", underTest);
         
         List<DealDetails> dealsForClient = underTest.getAllDealsForClient(clientID);
         assertNotNull(dealsForClient);
@@ -79,8 +79,7 @@ public class InMemoryDaoImplTest {
         assertThat(dealsForClient.get(2).getRate(), is(4.5));
     }
 
-    private String saveTestData(InMemoryDaoImpl underTest) {
-        String clientID = "client_1";
+    private String saveTestData(String clientID, InMemoryDaoImpl underTest) {
         List<DealDetails> deals = new ArrayList<>();
         deals.add(new DealDetails(2000, 1, 2.5));
         deals.add(new DealDetails(4000, 2, 3.5));

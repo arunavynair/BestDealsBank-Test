@@ -1,8 +1,10 @@
 package com.hsbc.bestdealsbank.domain;
 
 import java.util.Objects;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -10,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("dealDetails")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DealDetails {
+    
+    @JsonIgnore
+    private String dealId;
 
     private double principle;
     private double noOfYears;
@@ -22,6 +27,7 @@ public class DealDetails {
         this.principle = principle;
         this.noOfYears = noOfYears;
         this.rate = rate;
+        this.dealId = UUID.randomUUID().toString();
     }
 
     /**
@@ -45,11 +51,19 @@ public class DealDetails {
         return this.rate;
     }
 
+    /**
+     * 
+     * @return the deal id
+     */
+    public String getDealId() {
+        return this.dealId;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(this.principle, this.noOfYears, this.rate);
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof DealDetails)) {

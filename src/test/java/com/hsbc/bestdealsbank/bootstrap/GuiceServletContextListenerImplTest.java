@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotNull;
 public class GuiceServletContextListenerImplTest {
 
     @Test
-    public void testGetInjector(GuiceServletContextListenerImpl underTest) throws Exception {
+    public void shouldGetInjector(GuiceServletContextListenerImpl underTest) throws Exception {
         
         assertNotNull(underTest.getInjector());
     }

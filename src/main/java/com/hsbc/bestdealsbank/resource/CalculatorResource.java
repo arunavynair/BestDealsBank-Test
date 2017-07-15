@@ -14,6 +14,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import com.hsbc.bestdealsbank.domain.DealDetails;
+import com.hsbc.bestdealsbank.service.CalculatorService;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 

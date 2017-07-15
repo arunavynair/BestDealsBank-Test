@@ -71,20 +71,21 @@ public class CalculatorResourceTest {
     }
 
     @Test
-    public void shouldGetError() throws IOException {
+    public void shouldGetErrorForInvalidCalculatorType() throws IOException {
 
         Client client = Client.create(config);
         WebResource service = client.resource(UriBuilder.fromUri("http://localhost/").port(7001).build());
 
         DealDetails dealDetails = getTestDealDetails();
         String inputJson = new ObjectMapper().writeValueAsString(dealDetails);
-
+        
+        //when
         ClientResponse clientResponse = service.path("services/calculator")
                         .queryParam("type", "INVALID-TYPE")
                         .type(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
                         .post(ClientResponse.class, inputJson);
-        
+        //then
         assertThat(clientResponse.getStatus(), is(500));
     }
     
@@ -98,7 +99,6 @@ public class CalculatorResourceTest {
         List<DealDetails> deals = new ArrayList<>();
         deals.add(deal);
         String inputJson = new ObjectMapper().writeValueAsString(deals);
-        System.out.println(inputJson);
         
         //given
         ClientResponse putResponse = service.path("services/deal/clients/client-1")
@@ -118,7 +118,6 @@ public class CalculatorResourceTest {
 
         assertTrue(clientResponse.getStatus() == 200);
         assertFalse(entity.isEmpty());
-        
         assertThat(entity.size(), is(2));
     }
     

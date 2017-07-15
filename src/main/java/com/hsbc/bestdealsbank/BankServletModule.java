@@ -15,6 +15,7 @@ public class BankServletModule extends ServletModule {
     protected void configureServlets() {
 
         bind(JacksonJsonProvider.class).asEagerSingleton();
+        
         install(new ApplicationModule());
 
         new PackagesResourceConfig(RESOURCE_PACKAGE).getClasses()

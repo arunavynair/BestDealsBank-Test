@@ -14,7 +14,7 @@ Calculate - [Type] simple/compound
 
 [POST]
 <br/>
-http://localhost:7080/calculator-services/services/calculator?type=simple
+http://localhost:7080/bestdealsbank/services/calculator?type=simple
 Input Json:
 ```
 {
@@ -25,7 +25,7 @@ Input Json:
 ```
 [PUT]
 <br/>
-http://localhost:7080/calculator-services/services/deal/clients/1
+http://localhost:7080/bestdealsbank/services/deal/clients/1
 ```
 [
    {
@@ -43,7 +43,7 @@ http://localhost:7080/calculator-services/services/deal/clients/1
 
 [GET]
 <br/>
-http://localhost:7080/calculator-services/services/deal/clients/1
+http://localhost:7080/bestdealsbank/services/deal/clients/1
 
 ## Contributing
 

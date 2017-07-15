@@ -1,5 +1,6 @@
 package com.hsbc.bestdealsbank.dao;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public final class InMemoryDaoImpl implements Dao {
 
     @Override
     public void putClientDeals(String clientID, List<DealDetails> deals) {
-        clientDeals.put(clientID, deals);
+        
+        clientDeals.computeIfAbsent(clientID, k -> new ArrayList<DealDetails>()).addAll(deals);
     }
 }
