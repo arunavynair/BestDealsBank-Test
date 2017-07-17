@@ -154,8 +154,8 @@ public class CalculatorResourceTest {
 
         CalculatorResponse calculatorResponse = clientResponse.getEntity(CalculatorResponse.class);
 
-        assertThat(String.format("%.2f", calculatorResponse.getAmount()), is("318.55"));
-        assertThat(String.format("%.2f", calculatorResponse.getConverted()), is("411.82"));
+        assertThat(String.format("%.2f", calculatorResponse.getAmount()), is("300.00"));
+        assertThat(String.format("%.2f", calculatorResponse.getConverted()), is("387.84"));
     }
 
     @Test
@@ -177,8 +177,8 @@ public class CalculatorResourceTest {
 
         CalculatorResponse calculatorResponse = clientResponse.getEntity(CalculatorResponse.class);
 
-        assertThat(String.format("%.2f", calculatorResponse.getAmount()), is("300.00"));
-        assertThat(String.format("%.2f", calculatorResponse.getConverted()), is("387.84"));
+        assertThat(String.format("%.2f", calculatorResponse.getAmount()), is("318.55"));
+        assertThat(String.format("%.2f", calculatorResponse.getConverted()), is("411.82"));
     }
 
     @Test

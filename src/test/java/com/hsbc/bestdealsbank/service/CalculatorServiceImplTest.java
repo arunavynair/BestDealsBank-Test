@@ -16,6 +16,7 @@ import com.hsbc.bestdealsbank.domain.DealDetails;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(JukitoRunner.class)
 @UseModules({ ApplicationModule.class })
@@ -28,8 +29,8 @@ public class CalculatorServiceImplTest {
 
         CalculatorResponse calculatorResponse = underTest.calculate("simple", dealDetails);
 
-        assertThat(String.format("%.2f", calculatorResponse.getAmount()), is("318.55"));
-        assertThat(String.format("%.2f", calculatorResponse.getConverted()), is("411.82"));
+        assertThat(String.format("%.2f", calculatorResponse.getAmount()), is("300.00"));
+        assertThat(String.format("%.2f", calculatorResponse.getConverted()), is("387.84"));
     }
 
     @Test
@@ -54,6 +55,14 @@ public class CalculatorServiceImplTest {
         
         assertNotNull(allDealsForClient7);
         assertThat(allDealsForClient7.size(), is(2));
+    }
+    
+    @Test
+    public void shouldNotGetDealsForUnknowmClient(CalculatorService underTest) throws Exception {
+
+        List<CalculatorResponse> allDealsForClient = underTest.getAllDealsForClient("UNKNOWN");
+        
+        assertTrue(allDealsForClient.isEmpty());
     }
 
     @Test

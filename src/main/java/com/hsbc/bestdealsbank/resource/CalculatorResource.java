@@ -31,13 +31,13 @@ public class CalculatorResource {
     }
 
     @GET
-    @Path("/deal/clients/{id}")
+    @Path("/deal/clients/{clientId}")
     public Response getAllDealsForClient(@PathParam("clientId") String clientId) {
         return Response.ok(this.calculatorService.getAllDealsForClient(clientId)).build();
     }
 
     @PUT
-    @Path("/deal/clients/{id}")
+    @Path("/deal/clients/{clientId}")
     public Response putClientDeals(@PathParam("clientId") String clientID, List<DealDetails> deals) {
         this.calculatorService.putClientDeals(clientID, deals);
         return Response.ok().build();
